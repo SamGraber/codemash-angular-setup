@@ -1,10 +1,9 @@
 /*global mocha, __karma__, window*/
 Error.stackTraceLimit = Infinity;
-mocha.setup({
-	timeout: 1000,
-});
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 
 __karma__.loaded = function () { };
+window.expect = chai.expect;
 
 var basePath = '/base/';
 var appPath = basePath + 'source/';
