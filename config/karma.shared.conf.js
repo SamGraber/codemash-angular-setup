@@ -48,10 +48,14 @@ module.exports = function (karma) {
 		files: [
 			// polyfills
 			{ pattern: 'node_modules/es6-shim/es6-shim.js', included: true, watched: false },
-			{ pattern: 'node_modules/zone.js/dist/zone.js', included: true, watched: false },
 			{ pattern: 'node_modules/reflect-metadata/Reflect.js', included: true, watched: false },
 			{ pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: false },
-			{ pattern: 'node_modules/zone.js/dist/fake-async-test.js', included: true, watched: false },
+			'node_modules/zone.js/dist/zone.js',
+			'node_modules/zone.js/dist/long-stack-trace-zone.js',
+			'node_modules/zone.js/dist/proxy.js',
+			'node_modules/zone.js/dist/sync-test.js',
+			'node_modules/zone.js/dist/async-test.js',
+			'node_modules/zone.js/dist/fake-async-test.js',
 
 			// allow for importing these
 			{ pattern: 'node_modules/**/*', included: false, watched: false },

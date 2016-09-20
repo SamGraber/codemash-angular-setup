@@ -4,13 +4,13 @@ var map = {
 	'app': 'source',
 };
 
-var defaultPackageNames = [
-	'@angular/core',
-	'@angular/compiler',
-	'@angular/common',
-	'@angular/platform-browser',
-	'@angular/platform-browser-dynamic',
-	'@angular/http',
+var angularPackageNames = [
+	'core',
+	'compiler',
+	'common',
+	'platform-browser',
+	'platform-browser-dynamic',
+	'http',
 ];
 
 var packages = {
@@ -26,13 +26,16 @@ var packages = {
 	},
 };
 
-function setDefaultPackage(packageName) {
-	packages[packageName] = {
-		main: 'index.js',
-	};
+function setAngularPackage(packageName) {
+	map[`@angular/${packageName}`] = `node_modules/@angular/${packageName}/bundles/${packageName}.umd.js`;
 }
 
-defaultPackageNames.forEach(setDefaultPackage);
+function setAngularTestingPackage(packageName) {
+	map[`@angular/${packageName}/testing`] = `node_modules/@angular/${packageName}/bundles/${packageName}-testing.umd.js`;
+}
+
+angularPackageNames.forEach(setAngularPackage);
+angularPackageNames.forEach(setAngularTestingPackage);
 
 System.config({
 	map: map,
